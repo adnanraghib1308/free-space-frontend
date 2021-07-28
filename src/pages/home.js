@@ -17,9 +17,7 @@ const Home = () => {
       },
       body: JSON.stringify({
         user_name: values.username,
-      }),
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
+      })
     })
       .then((response) => response.json())
       .then((data) => {
