@@ -9,16 +9,21 @@ const Home = () => {
   const onFinish = async (values) => {
     fetch("http://user-free-space.herokuapp.com/find/", {
       method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         user_name: values.username,
       }),
+      redirect: "follow",
+      referrerPolicy: "no-referrer",
     })
       .then((response) => response.json())
       .then((data) => {
-        setResult(data)
+        setResult(data);
         setIsSearched(true);
       });
   };
